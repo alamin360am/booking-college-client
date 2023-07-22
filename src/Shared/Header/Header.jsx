@@ -9,21 +9,24 @@ const Header = () => {
       </div>
       <ul className="flex gap-4">
         <li>
-          <NavLink
-            to={"/"}
-            className="text-gray-500"
-          >
+          <NavLink to={"/"} className="text-gray-500 hover:text-gray-700">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/colleges'} className="text-gray-500">Colleges</NavLink>
+          <NavLink to={"/colleges"} className="text-gray-500 hover:text-gray-700">
+            Colleges
+          </NavLink>
         </li>
         <li>
-          <NavLink  to={'/admission'} className="text-gray-500">Admission</NavLink>
+          <NavLink to={"/admission"} className="text-gray-500 hover:text-gray-700">
+            Admission
+          </NavLink>
         </li>
         <li>
-          <NavLink  to={'/my-college'} className="text-gray-500">My College</NavLink>
+          <NavLink to={"/my-college"} className="text-gray-500 hover:text-gray-700">
+            My College
+          </NavLink>
         </li>
       </ul>
     </nav>
