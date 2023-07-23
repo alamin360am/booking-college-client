@@ -19,7 +19,7 @@ const Search = () => {
   };
 
   return (
-    <section>
+    <section className="mb-4">
       <form
         onSubmit={handleSearch}
         className="flex justify-center items-center bg-slate-500 py-10 mb-4"
