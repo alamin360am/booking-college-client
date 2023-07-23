@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TopCollege = ({ college }) => {
-  const { image, name, admission_dates, events, research_history, sports } =
+  const { _id ,image, name, admission_dates, events, research_history, sports } =
     college;
   console.log(college);
   return (
-    <div className="shadow-md rounded p-4">
+    <div className="shadow-lg rounded-md p-4 border">
       <img src={image} alt="" className="h-48 w-full mb-5" />
       <h2 className="text-xl font-bold">{name}</h2>
       <p className="mb-4">
@@ -40,6 +41,11 @@ const TopCollege = ({ college }) => {
             <li key={sport}>{sport}</li>
           ))}
         </ul>
+      </div>
+      <div className="flex justify-center">
+        <Link to={`/colleges/${_id}`} className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white">
+          Details
+        </Link>
       </div>
     </div>
   );

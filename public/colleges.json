@@ -1,0 +1,137 @@
+[
+  {
+    "_id": "64bd0f8126ef6687b5e86720",
+    "image": "https://i.postimg.cc/nc6JQBbN/221102021511-01-stanford-university-reviews-dorm-safety-procedures.jpg",
+    "name": "Stanford University",
+    "rating": 4.5,
+    "admission_dates": "January 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": ["Stanford Day", "Spring Fling", "Homecoming"],
+    "research_history": [
+      "Artificial Intelligence",
+      "Cancer Research",
+      "Climate Change"
+    ],
+    "sports": ["Football", "Basketball", "Baseball"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86721",
+    "image": "https://i.postimg.cc/2jgknPnH/www-usnews.jpg",
+    "name": "Harvard University",
+    "rating": 4.2,
+    "admission_dates": "February 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "Harvard Commencement",
+      "Harvard-Yale Game",
+      "Hasty Pudding Theatricals"
+    ],
+    "research_history": ["Law", "Medicine", "Business"],
+    "sports": ["Football", "Basketball", "Lacrosse"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86722",
+    "image": "https://i.postimg.cc/d0hNRS2B/mit-16x9-0.jpg",
+    "name": "MIT",
+    "rating": 4.8,
+    "admission_dates": "October 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": ["MIT Open House", "MIT Media Lab Show", "MIT Museum Gala"],
+    "research_history": ["Engineering", "Computer Science", "Physics"],
+    "sports": ["Football", "Basketball", "Ice Hockey"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86723",
+    "image": "https://i.postimg.cc/MpNmwZB7/crosscampus2019.webp",
+    "name": "Yale University",
+    "rating": 4.7,
+    "admission_dates": "December 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "Yale Bulldog Weekend",
+      "Yale-Harvard Game",
+      "Yale Glee Club Concert"
+    ],
+    "research_history": ["History", "Literature", "Political Science"],
+    "sports": ["Football", "Basketball", "Sailing"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86724",
+    "image": "https://i.postimg.cc/3r1jRFpJ/20060425-Nassau-Hall-JJ-IMG-5973.jpg",
+    "name": "Princeton University",
+    "rating": 4.5,
+    "admission_dates": "March 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "Princeton Reunions",
+      "Princeton Day",
+      "Princeton Arts Festival"
+    ],
+    "research_history": ["Economics", "Mathematics", "Physics"],
+    "sports": ["Football", "Basketball", "Lacrosse"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86725",
+    "image": "https://i.postimg.cc/tJ4xP8PR/220911220609-columbia-university-campus-file.jpg",
+    "name": "Columbia University",
+    "rating": 4.4,
+    "admission_dates": "January 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "Columbia University Spring Fling",
+      "Columbia Homecoming",
+      "Columbia University Commencement"
+    ],
+    "research_history": ["Law", "Medicine", "Business"],
+    "sports": ["Football", "Basketball", "Baseball"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86726",
+    "image": "https://i.postimg.cc/PqnvKCZR/Eckhart-Hall-campus-Ryerson-Physical-Laboratory-University.webp",
+    "name": "University of Chicago",
+    "rating": 4.1,
+    "admission_dates": "October 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "UChicago Open House",
+      "UChicago Cultural Center Program",
+      "UChicago Cancer Research Center Gala"
+    ],
+    "research_history": ["Economics", "History", "Literature"],
+    "sports": ["Football", "Basketball", "Baseball"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86727",
+    "image": "https://i.postimg.cc/q7pMzy24/Getty-Images-594949892.webp",
+    "name": "University of Pennsylvania",
+    "rating": 4.5,
+    "admission_dates": "November 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "Penn Relays",
+      "Penn Wharton Healthcare Conference",
+      "Penn Homecoming"
+    ],
+    "research_history": ["Business", "Engineering", "Medicine"],
+    "sports": ["Football", "Basketball", "Lacrosse"]
+  },
+  {
+    "_id": "64bd0f8126ef6687b5e86728",
+    "image": "https://i.postimg.cc/s2nQzwqt/Baker-Memorial-Library-Dartmouth-College-DSC090661.jpg",
+    "name": "Dartmouth College",
+    "rating": 4.6,
+    "admission_dates": "December 1st",
+    "admission_process": ["Go to Admission from Menu", "Click on your likeable College", "Fill up the form", "Click submit button"],
+    "events": [
+      "Dartmouth Winter Carnival",
+      "Dartmouth Green Key Weekend",
+      "Dartmouth Commencement"
+    ],
+    "research_history": [
+      "Engineering",
+      "Environmental Studies",
+      "Political Science"
+    ],
+    "sports": ["Football", "Basketball", "Ice Hockey"]
+  }
+]
