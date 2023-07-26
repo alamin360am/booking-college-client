@@ -15,7 +15,7 @@ const TopColleges = () => {
   }, []);
 
   return (
-    <section className="mb-4">
+    <section className="mb-8">
       <Heading heading={"Top Colleges"}></Heading>
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
         {colleges.map((college) => (
