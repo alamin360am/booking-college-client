@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { Helmet } from "react-helmet";
 
 const CollegeDetails = () => {
   const college = useLoaderData();
@@ -16,12 +17,13 @@ const CollegeDetails = () => {
   } = college;
   return (
     <section className="mb-4">
+      <Helmet><title>{name}</title></Helmet>
       <div className="flex justify-center h-72 mb-4">
         <img src={image} alt="" />
       </div>
       <h3 className="text-2xl text-center font-bold">{name}</h3>
       <p className="text-center">
-        admission date: <span className="text-gray-500">{admission_dates}</span>
+        Admission Date: <span className="text-gray-500">{admission_dates}</span>
       </p>
       <p className="mb-4 text-center">
         Ratings: <span className="text-gray-500">{rating}</span>
