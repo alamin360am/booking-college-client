@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Heading from "../../Components/Heading";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const SignIn = () => {
+  const { signIn } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+    .then(result=>{
+        console.log(result);
+    })
+    .catch(error => console.log(error))
   };
-  
+
   return (
     <section className="mb-8">
       <Heading heading={"Sign Up Now"}></Heading>
