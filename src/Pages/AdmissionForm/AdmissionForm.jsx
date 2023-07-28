@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
+import { BiUpload } from "react-icons/bi";
 
 const AdmissionForm = () => {
   const college = useLoaderData();
+  const [imgToken, setImgToken] = useState("");
+  const [imgName, setImgName] = useState(null);
+
+  useEffect(() => {
+    setImgToken(import.meta.env.VITE_IMG_API);
+  }, []);
+
+  const imgURL = `https://api.imgbb.com/1/upload?key=${imgToken}`;
+
   const { name } = college;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,11 +25,49 @@ const AdmissionForm = () => {
     const phoneNumber = form.phoneNumber.value;
     const address = form.address.value;
     const dateOfBirth = form.dateOfBirth.value;
-    const data = {studentName, subject, email, phoneNumber, address, dateOfBirth};
-    console.log(data);
+    const img = form.img.files;
+
+    const formData = new FormData();
+    formData.append('image', img[0]);
+
+    fetch(imgURL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(imgResponse => {
+      if(imgResponse.success) {
+        const data = {
+          studentName,
+          collegeName: name,
+          subject,
+          email,
+          phoneNumber,
+          address,
+          dateOfBirth,
+          image: imgResponse.data.display_url
+        };
+        fetch('http://localhost:5000/admission', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(data) 
+        })
+        .then(res => res.json())
+        .then(data =>{
+          if(data.insertedId) {
+            alert("Apply Successful")
+          }
+        })
+      }
+    })
   };
   return (
-    <div className="mb-8">
+    <section className="mb-8">
+      <Helmet>
+        <title>Admission on {name}</title>
+      </Helmet>
       <form onSubmit={handleSubmit} className="bg-purple-200 p-4">
         <p className="text-center mt-2">
           Admission to <span>{name}</span>
@@ -86,10 +136,20 @@ const AdmissionForm = () => {
               className="focus:outline-none px-3 py-2 rounded"
             />
           </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="img" className="p-4 bg-purple-900 text-white flex items-center gap-4 rounded">
+              <BiUpload className="text-xl"></BiUpload> <span>Upload a image</span>
+            </label>
+            <input type="file" name="img" id="img" className="hidden"/>
+          </div>
         </div>
-        <input type="submit" value="Submit" className="mt-4 bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white" />
+        <input
+          type="submit"
+          value="Submit"
+          className="mt-4 bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white"
+        />
       </form>
-    </div>
+    </section>
   );
 };
 

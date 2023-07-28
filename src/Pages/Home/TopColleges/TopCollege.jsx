@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const TopCollege = ({ college }) => {
   const { _id ,image, name, admission_dates, events, research_history, sports } =
     college;
-  console.log(college);
+    
   return (
     <div className="shadow-lg rounded-md p-4 border">
       <img src={image} alt="" className="h-48 w-full mb-5" />
