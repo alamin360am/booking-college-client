@@ -7,6 +7,8 @@ import Main from "./Layouts/Main";
 import Colleges from "./Pages/Colleges/Colleges";
 import CollegeDetails from "./Pages/CollegeDetails/CollegeDetails";
 import ErrorPage from "./Components/ErrorPage";
+import Admission from "./Pages/Admission/Admission";
+import AdmissionForm from "./Pages/AdmissionForm/AdmissionForm";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,17 @@ const router = createBrowserRouter([
         path: "/colleges/:id",
         element: <CollegeDetails></CollegeDetails>,
         loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
-      }
+      },
+      {
+        path: "/admission",
+        element: <Admission></Admission>,
+        loader: ()=> fetch("http://localhost:5000/colleges")
+      },
+      {
+        path: "/admission/:id",
+        element: <AdmissionForm></AdmissionForm>,
+        loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
+      },
     ],
   },
 ]);

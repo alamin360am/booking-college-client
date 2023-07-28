@@ -1,11 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { Helmet } from "react-helmet";
 
 const CollegeDetails = () => {
   const college = useLoaderData();
   const {
+    _id,
     image,
     name,
     admission_dates,
@@ -17,7 +18,9 @@ const CollegeDetails = () => {
   } = college;
   return (
     <section className="mb-4">
-      <Helmet><title>{name}</title></Helmet>
+      <Helmet>
+        <title>{name}</title>
+      </Helmet>
       <div className="flex justify-center h-72 mb-4">
         <img src={image} alt="" />
       </div>
@@ -72,7 +75,7 @@ const CollegeDetails = () => {
           </ul>
         </div>
       </div>
-      <div>
+      <div className="mb-8">
         <h2 className="text-xl font-bold bg-purple-700 text-white inline-block px-2 py-1 mb-3 rounded">
           Admission Process
         </h2>
@@ -87,6 +90,7 @@ const CollegeDetails = () => {
           ))}
         </ul>
       </div>
+      <Link to={`/admission/${_id}`} className="bg-purple-800 hover:bg-purple-900 text-white px-4 py-2 cursor-pointer">Apply</Link>
     </section>
   );
 };

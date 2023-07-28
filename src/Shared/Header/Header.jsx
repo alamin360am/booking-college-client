@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <nav className="py-3 flex items-center justify-between">
       <div>
-        <h2 className="text-3xl font-bold">Book College</h2>
+        <NavLink to={"/"}><h2 className="text-3xl font-bold">Book College</h2></NavLink>
       </div>
       <ul className="flex gap-4">
         <li>
