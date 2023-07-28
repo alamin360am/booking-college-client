@@ -3,7 +3,13 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+
+  const handleLogOut = ()=>{
+    logOut();
+  }
+
   return (
     <nav className="py-3 flex items-center justify-between">
       <div>
@@ -44,11 +50,23 @@ const Header = () => {
       </ul>
       <div className="flex gap-4">
         {user ? (
-          <></>
+          <>
+          <NavLink onClick={handleLogOut} to={"/signin"} className="text-gray-500 hover:text-gray-700">Log Out</NavLink>
+          </>
         ) : (
           <>
-            <NavLink to={"/signin"} className="text-gray-500 hover:text-gray-700">Sign In</NavLink>
-            <NavLink to={"/signup"} className="text-gray-500 hover:text-gray-700">Sign Up</NavLink>
+            <NavLink
+              to={"/signin"}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              Sign In
+            </NavLink>
+            <NavLink
+              to={"/signup"}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              Sign Up
+            </NavLink>
           </>
         )}
       </div>

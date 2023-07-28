@@ -6,7 +6,6 @@ import { BiUpload } from "react-icons/bi";
 const AdmissionForm = () => {
   const college = useLoaderData();
   const [imgToken, setImgToken] = useState("");
-  const [imgName, setImgName] = useState(null);
 
   useEffect(() => {
     setImgToken(import.meta.env.VITE_IMG_API);
