@@ -32,7 +32,7 @@ const ImgGallery = () => {
           </>
         ) : (
           datas.map((data) => (
-            <div>
+            <div key={data._id}>
               <img
                 src={data.image}
                 alt=""
