@@ -20,7 +20,7 @@ const SignIn = () => {
 
   return (
     <section className="mb-8">
-      <Heading heading={"Sign Up Now"}></Heading>
+      <Heading heading={"Log In"}></Heading>
       <form
         onSubmit={handleSubmit}
         className="bg-purple-200 p-4 flex gap-4 flex-col justify-center items-center"
@@ -47,8 +47,8 @@ const SignIn = () => {
         </div>
         <input
           type="submit"
-          value="Sign Up"
-          className="bg-purple-600 text-white px-4 py-2 rounded"
+          value="Log In"
+          className="bg-purple-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-purple-800"
         />
       </form>
     </section>
