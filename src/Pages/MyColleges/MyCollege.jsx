@@ -14,28 +14,29 @@ const MyCollege = ({ apply }) => {
     email,
   } = apply;
 
-  console.log(apply);
-
-  const handleDelete = id =>{
+  const handleDelete = (id) => {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your apply has been deleted.',
-            'success'
-          )
-        }
-      })
-    console.log(id);
-  }
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/admission/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount === 1) {
+              Swal.fire("Deleted!", "Your apply has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="mb-4 w-full p-4 md:p-2 border rounded">
@@ -57,8 +58,7 @@ const MyCollege = ({ apply }) => {
             <span className="font-normal text-gray-500">{subject}</span>
           </p>
           <p className="font-bold">
-            Email:{" "}
-            <span className="font-normal text-gray-500">{email}</span>
+            Email: <span className="font-normal text-gray-500">{email}</span>
           </p>
         </div>
         <div>
@@ -76,8 +76,15 @@ const MyCollege = ({ apply }) => {
           </p>
         </div>
         <div className="flex flex-col gap-2">
-            <button className="bg-green-700 inline-block px-2 rounded text-sm text-white">Update</button>
-            <button onClick={()=>handleDelete(_id)} className="bg-red-700 inline-block px-2 rounded text-sm text-white">Remove</button>
+          <button className="bg-green-700 inline-block px-2 rounded text-sm text-white">
+            Update
+          </button>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="bg-red-700 inline-block px-2 rounded text-sm text-white"
+          >
+            Remove
+          </button>
         </div>
       </div>
     </div>
