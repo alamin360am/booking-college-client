@@ -53,7 +53,7 @@ const Header = () => {
             <div className="h-10 w-10 overflow-hidden rounded-full">
               <img src={user?.photoURL} alt="" />
             </div>
-            <Link to={"/"} title="View Profile">{user?.displayName}</Link>
+            <Link to={"/profile"} title="View Profile">{user?.displayName}</Link>
             <NavLink
               onClick={handleLogOut}
               to={"/signin"}

@@ -1,9 +1,15 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link} from 'react-router-dom';
 import Heading from '../../Components/Heading';
 
 const Admission = () => {
-    const colleges = useLoaderData();
+    const [colleges, setColleges] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/colleges')
+        .then(res => res.json())
+        .then(data => setColleges(data))
+    }, [])
     
     return (
         <section>

@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router-dom";
 import { BiUpload } from "react-icons/bi";
+import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AdmissionForm = () => {
-  const college = useLoaderData();
+  const [college, setCollege] = useState([]);
+  const id = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/colleges/${id.id}`)
+      .then((res) => res.json())
+      .then((data) => setCollege(data));
+  }, []);
+
   const [imgToken, setImgToken] = useState("");
 
   useEffect(() => {
@@ -27,45 +36,51 @@ const AdmissionForm = () => {
     const img = form.img.files;
 
     const formData = new FormData();
-    formData.append('image', img[0]);
+    formData.append("image", img[0]);
 
     fetch(imgURL, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     })
-    .then(res => res.json())
-    .then(imgResponse => {
-      if(imgResponse.success) {
-        const data = {
-          studentName,
-          collegeName: name,
-          subject,
-          email,
-          phoneNumber,
-          address,
-          dateOfBirth,
-          image: imgResponse.data.display_url
-        };
-        fetch('http://localhost:5000/admission', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(data =>{
-          if(data.insertedId) {
-            alert("Apply Successful")
-          }
-        })
-      }
-    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const data = {
+            studentName,
+            collegeName: name,
+            subject,
+            email,
+            phoneNumber,
+            address,
+            dateOfBirth,
+            image: imgResponse.data.display_url,
+          };
+          fetch("http://localhost:5000/admission", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Your work has been saved",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            });
+        }
+      });
   };
   return (
     <section className="mb-8">
       <Helmet>
-        <title>Admission on {name}</title>
+        <title>Admission on</title>
       </Helmet>
       <form onSubmit={handleSubmit} className="bg-purple-200 p-4">
         <p className="text-center mt-2">
@@ -136,10 +151,14 @@ const AdmissionForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="img" className="p-4 bg-purple-900 text-white flex items-center gap-4 rounded">
-              <BiUpload className="text-xl"></BiUpload> <span>Upload a image</span>
+            <label
+              htmlFor="img"
+              className="p-4 bg-purple-900 text-white flex items-center gap-4 rounded"
+            >
+              <BiUpload className="text-xl"></BiUpload>{" "}
+              <span>Upload a image</span>
             </label>
-            <input type="file" name="img" id="img" className="hidden"/>
+            <input type="file" name="img" id="img" className="hidden" />
           </div>
         </div>
         <input

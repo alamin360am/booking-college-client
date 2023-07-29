@@ -13,6 +13,7 @@ import MyColleges from "./Pages/MyColleges/MyColleges";
 import AuthProvider from "./Providers/AuthProvider";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
+import Profile from "./Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -35,13 +36,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission></Admission>,
-        loader: ()=> fetch("http://localhost:5000/colleges")
+        element: <Admission></Admission>
       },
       {
         path: "/admission/:id",
         element: <AdmissionForm></AdmissionForm>,
-        loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
+        // loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
       },
       {
         path: "/my-college",
@@ -54,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>
       }
     ],
   },

@@ -7,13 +7,17 @@ const MyColleges = () => {
   const [loader, setLoader] = useState(true);
   const [applied, setApplied] = useState([]);
 
-  useEffect(() => {
+  const fetchData = () => {
     fetch(
       `http://localhost:5000/admission?email=alaminrahmatullah567@gmail.com`
     )
       .then((res) => res.json())
       .then((data) => setApplied(data));
     setLoader(false);
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
@@ -26,7 +30,7 @@ const MyColleges = () => {
         <div className="text-center p-10 border rounded">Loading....</div>
       ) : (
         applied.map((apply) => (
-          <MyCollege key={apply._id} apply={apply}></MyCollege>
+          <MyCollege key={apply._id} apply={apply} onRefetch={fetchData}></MyCollege>
         ))
       )}
     </section>

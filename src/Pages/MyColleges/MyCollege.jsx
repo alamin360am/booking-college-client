@@ -1,7 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 
-const MyCollege = ({ apply }) => {
+const MyCollege = ({ apply, onRefetch }) => {
   const {
     _id,
     collegeName,
@@ -36,6 +36,9 @@ const MyCollege = ({ apply }) => {
           });
       }
     });
+
+    onRefetch();
+
   };
 
   return (
