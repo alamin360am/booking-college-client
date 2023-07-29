@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import { BiUpload } from "react-icons/bi";
 import Swal from "sweetalert2";
 
 const EditProfile = () => {
   const user = useLoaderData();
+  const navigate = useNavigate()
   const [imgToken, setImgToken] = useState("");
 
   useEffect(() => {
@@ -50,7 +51,8 @@ const EditProfile = () => {
                         title: 'Your profile has been updated',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                      });
+                      navigate("/profile")
                 }
             })
         }
