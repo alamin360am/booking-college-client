@@ -14,6 +14,7 @@ import AuthProvider from "./Providers/AuthProvider";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import Profile from "./Pages/Profile/Profile";
+import EditProfile from "./Pages/EditProfile/EditProfile";
 
 const router = createBrowserRouter([
   {
@@ -40,8 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/admission/:id",
-        element: <AdmissionForm></AdmissionForm>,
-        // loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
+        element: <AdmissionForm></AdmissionForm>
       },
       {
         path: "/my-college",
@@ -58,6 +58,11 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile></Profile>
+      },
+      {
+        path: "/profile/:id",
+        element: <EditProfile></EditProfile>,
+        loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`)
       }
     ],
   },

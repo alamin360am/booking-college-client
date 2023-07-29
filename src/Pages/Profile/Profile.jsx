@@ -28,7 +28,7 @@ const Profile = () => {
                 <p className="text-white font-bold mb-2">University:</p>
                 <p className="text-white font-bold mb-2">Birthday:</p>
                 <p className="text-white font-bold mb-2">Email:</p>
-                <Link className="bg-orange-400 px-2 py-1 text-sm rounded-full text-white inline-block">
+                <Link to={`/profile/${data[0]?._id}`} className="bg-orange-400 px-2 py-1 text-sm rounded-full text-white inline-block">
                   Edit Profile
                 </Link>
               </div>
